@@ -26,21 +26,21 @@ class SessionForm extends React.Component {
     const errors = this.props.errors.map((error, idx) => (
       <li key={idx}>{error}</li>
     ));
-    let link = this.props.address === 'signup' ? 'signup' : 'login';
+    let link = this.props.address === 'signup' ? 'login' : 'signup';
 
     return (
-      <div>
+      <div className='session_form'>
         <h3>{this.props.formType}</h3>
         <form onSubmit={this.handleSubmit}>
 
-          <label>Username
+          <label>Username:
             <input
               type="text"
               value={this.state.username}
               onChange={this.update('username')}/>
           </label>
 
-          <label>Password
+          <label>Password:
             <input
               type="text"
               value={this.state.password}

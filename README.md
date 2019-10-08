@@ -3,7 +3,7 @@
 ### todo
 * errors are coming back way to long
 * not sure how to redirect in the session form
-* users are coming back into the state with an structure
+* users are coming back into the state with a weird structure
   * entities:
     * users:
       * undefined:
