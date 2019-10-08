@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### todo
+* errors are coming back way to long
+* not sure how to redirect in the session form
+* users are coming back into the state with an structure
+  * entities:
+    * users:
+      * undefined:
+        * user: {"id":8, "username":"dsfgsg"}
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
