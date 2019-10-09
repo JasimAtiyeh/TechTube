@@ -9,16 +9,23 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
+    let user = Object.assign({}, this.state);
     this.props.processForm(user);
     this.setState({
       username: '',
       password: ''
     });
+  }
+
+  handleGuestLogin(e) {
+    e.preventDefault();
+    let user = {username: 'guest', password: 'password'};
+    this.props.processForm(user);
   }
 
   update(field) {
@@ -39,8 +46,8 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div className='session_form'>
-        <img src="/app/assets/images/boo_tube_logo.png" alt="logo"/>
+      <div className='session-form'>
+        <img className='logo-session-form' src={window.logo} alt="logo"/>
         <h3>{this.props.formType}</h3>
         <form onSubmit={this.handleSubmit}>
 
@@ -60,13 +67,12 @@ class SessionForm extends React.Component {
               onChange={this.update('password')}/>
           </label>
 
-          <div className='signup-login-buttons'>
-            <Link  to={`/`} >{link}</Link>
-            <input type="submit" value={this.props.formType}/>
+          <div className='signup-login'>
+            {/* <Link to={`/${link.toLowerCase()}`} className='signup-login-buttons'>To {link}</Link> */}
+            <input type="button" value='Login as guest' className='signup-login-buttons' onClick={this.handleGuestLogin}/>
+            <input type="submit" value={this.props.formType} className='signup-login-buttons'/>
           </div>
         </form>
-
-        {/* redirect to root in logged in */}
 
         <ul>
           {errors}

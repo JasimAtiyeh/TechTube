@@ -9,7 +9,15 @@ class Greeting extends React.Component {
   }
 
   handleClick() {
-    document.getElementById("session_state").classList.toggle("show");
+    document.getElementById("session-state").classList.add("show");
+    document.addEventListener("click", () => (
+      document.getElementById("session-state").classList.remove("show")
+    ));
+
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleClick());
   }
 
   render() {
@@ -17,12 +25,12 @@ class Greeting extends React.Component {
     let currentUser;
     if (this.props.currentUser) {
       header = (
-        <button className='current_user' onClick={this.props.logout}>Logout</button>
+        <button className='current-user' onClick={this.props.logout}>Logout</button>
       )
-      currentUser = this.props.currentUser.username[0].toUpperCase
+      currentUser = this.props.currentUser.username[0].toUpperCase();
     } else {
       header = (
-        <div className='no_current_user'>
+        <div className='no-current-user'>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
         </div>
@@ -31,8 +39,12 @@ class Greeting extends React.Component {
     
     return (
       <div className="dropdown">
-        <button onClick={this.handleClick} className="dropdownbtn">{currentUser || 'G'}</button>
-        <div id="session_state" className="dropdown-content">
+        <button
+          onClick={this.handleClick}
+          className="dropdownbtn">
+            {!currentUser ? '' : currentUser ? currentUser : 'G'}
+        </button>
+        <div id="session-state" className="dropdown-content">
           {header}
         </div>
       </div>

@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #E0E0E0;
-  background-color: #006dd8;
+  background-color: #30007b;
   height: 60px;
   padding: auto;
 }
@@ -22,35 +22,35 @@ body {
   left: 5px;
 }
 
-.current_user {
+.current-user {
   position: relative;
-  background-color: #006dd8;
+  background-color: #30007b;
   font-size: 16px;
   font-weight: 600;
   margin: 0 auto;
   height: 30px;
   top: 10px;
-  color: white;
+  color: #ccc58a;
 }
 
-.no_current_user {
+.no-current-user {
   position: relative;
   top: 16px;
 }
 
-.no_current_user a {
+.no-current-user a {
   padding: 10px;
   text-decoration: none;
   color: black;
   margin: 5px;
   border-radius: 5px;
-  background-color: #006dd8;
+  background-color: #30007b;
   font-size: 16px;
   font-weight: 600;
-  color: white;
+  color: #ccc58a;
 }
 
-.session_form {
+.session-form {
   display: flex;
   width: 450px;
   margin: 100px auto;
@@ -58,16 +58,18 @@ body {
   border: 1px solid #9E9E9E;
   border-radius: 10px;
   padding: 20px;
-  background-color: white;
+  background-color: #30007b;
+  box-shadow: 0px 0px 12px 0px darkgrey;
+  color: #ccc58a;
 }
 
-.session_form form{
+.session-form form{
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
 
-.session_form label {
+.session-form label {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
@@ -76,9 +78,13 @@ body {
   font-size: 20px;
 }
 
-.session_form h3 {
+.session-form h3 {
   text-align: center;
   font-size: 24px;
+  padding: 30px;
+  padding-top: 45px;
+  padding-bottom: 20px;
+
 }
 
 .redirect_link {
@@ -97,13 +103,13 @@ body {
   font-size: 20px;
 }
 
-.signup-login-buttons {
+.signup-login {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
 }
 
-.signup-login-buttons > input, a {
+.signup-login-buttons {
   text-decoration: none;
   color: gray;
   border: 1px solid #9E9E9E;
@@ -111,8 +117,9 @@ body {
   font-size: 16px;
   font-weight: 600;
   font-family: sans-serif;
-  color: white;
-  background-color: #006dd8;
+  color: #30007b;
+  background-color: #ccc58a;
+  border-radius: 4px;
 }
 
 .dropdown {
@@ -129,6 +136,7 @@ body {
   border-radius: 50%;
   font-size: 18px;
   font-weight: 600;
+  color: #30007b;
 }
 
 .dropdown-content {
@@ -138,11 +146,22 @@ body {
 .show{
   display: flex;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #ccc58a;
   min-width: fit-content;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 6px 0px darkgray;
   right: 10px;
   top: 69px;
   height: 50px;
   padding: 0 10px;
 };
+
+.logo-nav {
+  width: 75px;
+  height: -webkit-fill-available;
+}
+
+.logo-session-form {
+  height: 125px;
+  width: 150px;
+  align-self: center;
+}
