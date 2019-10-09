@@ -54,7 +54,6 @@ body {
   padding: 5px 15px;
   text-decoration: none;
   margin: 5px;
-  border-radius: 5px;
   border: 1px solid #065fd4;
   background-color: white;
   font-size: 16px;
@@ -132,6 +131,10 @@ body {
   font-size: 16px;
   font-weight: 600;
   color: #065fd4;
+}
+
+.guest-login-button:hover {
+  cursor: default;
 }
 
 .dropdown {
