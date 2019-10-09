@@ -9,27 +9,31 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
-  background-color: #1b5e2091;
+  border-bottom: 1px solid #E0E0E0;
+  background-color: #EEEEEE;
   height: 50px;
   padding: auto;
 }
 
 .navbar h1 {
   position: relative;
+  margin: 0;
+  top: 6px;
+  left: 5px;
 }
 
 .current_user {
   position: relative;
-  background-color: #1b5e207a;
-  margin: 10px;
+  background-color: #FAFAFA;
   font-size: 16px;
   font-weight: 600;
+  margin: 0 auto;
+  height: 30px;
+  top: 10px;
 }
 
 .no_current_user {
   position: relative;
-  right: 5px;
   top: 16px;
 }
 
@@ -39,7 +43,7 @@ body {
   color: black;
   margin: 5px;
   border-radius: 5px;
-  background-color: #1b5e207a;
+  background-color: #FAFAFA;
   font-size: 16px;
   font-weight: 600;
 }
@@ -50,7 +54,7 @@ body {
   height: 500px;
   margin: 100px auto;
   flex-direction: column;
-  border: 1px solid gray;
+  border: 1px solid #9E9E9E;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -77,11 +81,13 @@ body {
   text-align: center;
   text-decoration: none;
   color: gray;
-  border: 1px solid gray;
+  border: 1px solid #9E9E9E;
   width: fit-content;
   position: relative;
   left: 195px;
   padding: 5px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .session_form label > input {
@@ -93,9 +99,41 @@ form > input[type='submit'] {
   text-align: center;
   text-decoration: none;
   color: gray;
-  border: 1px solid gray;
+  border: 1px solid #9E9E9E;
   width: fit-content;
   position: relative;
   left: 195px;
   padding: 5px;
+  font-size: 16px;
+  font-weight: 600;
 }
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownbtn {
+  position: relative;
+  height: 25px;
+  top: 12px;
+  right: 6px;
+}
+
+.dropdown-content {
+  display: none;
+};
+
+.show{
+  display: flex;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 65px;
+  top: 20px;
+  height: 50px;
+  padding 0 10px;
+};
+
