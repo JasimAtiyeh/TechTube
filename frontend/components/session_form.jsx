@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
   handleGuestLogin(e) {
     e.preventDefault();
     let user = {username: 'guest', password: 'password'};
-    this.props.processForm(user);
+    this.props.demoLogin(user);
   }
 
   update(field) {
@@ -38,19 +38,12 @@ class SessionForm extends React.Component {
       <li key={idx}>{error}</li>
     ));
 
-    let link;
-    if (this.props.address === '/signup'){
-      link = 'Login';
-    } else {
-      link = 'Signup';
-    }
-
     return (
       <div className='session-form'>
         <img className='logo-session-form' src={window.logo} alt="logo"/>
         <h3>{this.props.formType}</h3>
-        <form onSubmit={this.handleSubmit}>
 
+        <form onSubmit={this.handleSubmit}>
           <label>Username
             <input
               type="text"
@@ -68,9 +61,15 @@ class SessionForm extends React.Component {
           </label>
 
           <div className='signup-login'>
-            {/* <Link to={`/${link.toLowerCase()}`} className='signup-login-buttons'>To {link}</Link> */}
-            <input type="button" value='Login as guest' className='signup-login-buttons' onClick={this.handleGuestLogin}/>
-            <input type="submit" value={this.props.formType} className='signup-login-buttons'/>
+            <input
+              type="button"
+              value='Login as guest'
+              className='guest-login-button'
+              onClick={this.handleGuestLogin}/>
+            <input
+              type="submit"
+              value={this.props.formType}
+              className='signup-login-button'/>
           </div>
         </form>
 

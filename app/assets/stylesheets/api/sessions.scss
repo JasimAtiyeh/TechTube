@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  font-family: sans-serif;
+  background-color: #F5F5F5;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #E0E0E0;
-  background-color: #30007b;
+  background-color: white;
   height: 60px;
   padding: auto;
 }
@@ -22,32 +22,43 @@ body {
   left: 5px;
 }
 
+.video-nav {
+  position: relative;
+  left: 250px;
+  height: 40px;
+  top: 9px;
+}
+
 .current-user {
   position: relative;
-  background-color: #30007b;
   font-size: 16px;
   font-weight: 600;
-  margin: 0 auto;
   height: 30px;
   top: 10px;
-  color: #ccc58a;
+  color: grey;
+  border: 0px;
+}
+
+.current-user:hover {
+  background-color: #065FD4;
+  color: white;
 }
 
 .no-current-user {
   position: relative;
-  top: 16px;
+  top: 21px;
+  right: 10px;
 }
 
 .no-current-user a {
-  padding: 10px;
+  padding: 5px 15px;
   text-decoration: none;
-  color: black;
   margin: 5px;
   border-radius: 5px;
-  background-color: #30007b;
+  border: 1px solid #065fd4;
+  background-color: white;
   font-size: 16px;
-  font-weight: 600;
-  color: #ccc58a;
+  color: #065FD4;
 }
 
 .session-form {
@@ -55,18 +66,17 @@ body {
   width: 450px;
   margin: 100px auto;
   flex-direction: column;
-  border: 1px solid #9E9E9E;
+  border: 1px solid rgb(220, 220, 220);
   border-radius: 10px;
   padding: 20px;
-  background-color: #30007b;
-  box-shadow: 0px 0px 12px 0px darkgrey;
-  color: #ccc58a;
+  background-color: white;
 }
 
 .session-form form{
   display: flex;
   flex-direction: column;
   margin: 10px;
+  color: #065fd4;
 }
 
 .session-form label {
@@ -74,17 +84,15 @@ body {
   flex-direction: column;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align: start;
-  font-size: 20px;
 }
 
 .session-form h3 {
   text-align: center;
   font-size: 24px;
   padding: 30px;
-  padding-top: 45px;
+  padding-top: 35px;
   padding-bottom: 20px;
-
+  font-weight: lighter;
 }
 
 .redirect_link {
@@ -97,10 +105,11 @@ body {
 }
 
 .login-inputs {
-  border-radius: 3px;
   margin-top: 10px;
-  height: 30px;
+  height: 40px;
   font-size: 20px;
+  padding: 0px 10px;
+  border: 1px solid #065fd4;
 }
 
 .signup-login {
@@ -109,22 +118,26 @@ body {
   margin-top: 30px;
 }
 
-.signup-login-buttons {
-  text-decoration: none;
-  color: gray;
-  border: 1px solid #9E9E9E;
-  padding: 9px 12px;
+.signup-login-button {
+  padding: 9px 25px;
   font-size: 16px;
   font-weight: 600;
-  font-family: sans-serif;
-  color: #30007b;
-  background-color: #ccc58a;
+  color: white;
+  background-color: #065fd4;
   border-radius: 4px;
+}
+
+.guest-login-button {
+  border: 1px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #065fd4;
 }
 
 .dropdown {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .dropdownbtn {
@@ -136,32 +149,38 @@ body {
   border-radius: 50%;
   font-size: 18px;
   font-weight: 600;
-  color: #30007b;
+  color: #065fd4;
 }
 
 .dropdown-content {
   display: none;
-};
+}
 
-.show{
+#session-state {
   display: flex;
   position: absolute;
-  background-color: #ccc58a;
-  min-width: fit-content;
-  box-shadow: 0px 0px 6px 0px darkgray;
+  box-shadow: 0px 0px 6px 0px darkgrey;
   right: 10px;
   top: 69px;
   height: 50px;
   padding: 0 10px;
-};
+  background-color: white;
+}
 
 .logo-nav {
   width: 75px;
-  height: -webkit-fill-available;
 }
 
 .logo-session-form {
-  height: 125px;
+  height: 145px;
   width: 150px;
   align-self: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

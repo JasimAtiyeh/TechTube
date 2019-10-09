@@ -11,6 +11,7 @@ const App = () => (
       <Link to={'/'}>
         <img className='logo-nav' src={window.logo} alt="logo" />
       </Link>
+      {/* <img className='video-nav' src={window.video_add} alt="add_video"/> */}
       <GreetingContainer/>
     </header>
 

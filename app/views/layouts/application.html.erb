@@ -7,11 +7,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <script type="text/javascript">
       window.logo = "<%= image_url('logo.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.video_add = "<%= image_url('add-video.png') %>"
     </script>
     <%= yield %>
   </body>

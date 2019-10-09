@@ -1,6 +1,10 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { withRouter } from "react-router"
+import { Route, Redirect, withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+
+const mapStateToProps = state => ({
+  loggedIn: !!state.session.id
+})
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route
@@ -12,4 +16,4 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   />
 );
 
-export default withRouter(Auth);
+export default withRouter(connect(mapStateToProps)(Auth));

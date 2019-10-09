@@ -6,48 +6,66 @@ class Greeting extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.logout = this.logout.bind(this);
+    this.state = {
+      show: false
+    };
   }
 
   handleClick() {
-    document.getElementById("session-state").classList.add("show");
-    document.addEventListener("click", () => (
-      document.getElementById("session-state").classList.remove("show")
-    ));
-
+    this.setState({
+      show: true
+    });
   }
 
-  componentWillUnmount() {
-    document.removeEventListener("click", this.handleClick());
+  logout() {
+    this.props.logout().then(() => this.setState({
+      show: false
+    }));
   }
 
   render() {
     let header;
     let currentUser;
     if (this.props.currentUser) {
-      header = (
-        <button className='current-user' onClick={this.props.logout}>Logout</button>
-      )
       currentUser = this.props.currentUser.username[0].toUpperCase();
+      header = (
+        <div className="dropdown">
+          <button
+            onClick={this.handleClick}
+            className="dropdownbtn">
+            {currentUser}
+          </button>
+          {this.state.show &&
+            (<>
+              <div className="modal" onClick={() => this.setState({
+                show: false
+              })}></div>
+              <div id="session-state" className="dropdown-content">
+                {/* <Link>Profile</Link> */}
+                <button className='current-user' onClick={this.logout}>
+                  Logout
+                </button>
+              </div>
+            </>)
+          }
+        </div>
+      )
     } else {
       header = (
         <div className='no-current-user'>
-          <Link to="/signup">Signup</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/signup" onClick={() => this.setState({show: false})}>
+            Signup
+          </Link>
+          <Link to="/login" onClick={() => this.setState({show: false})}>
+            Login
+          </Link>
         </div>
       )
     }
     
     return (
-      <div className="dropdown">
-        <button
-          onClick={this.handleClick}
-          className="dropdownbtn">
-            {!currentUser ? '' : currentUser ? currentUser : 'G'}
-        </button>
-        <div id="session-state" className="dropdown-content">
-          {header}
-        </div>
-      </div>
+      header
     )
   }
 }
