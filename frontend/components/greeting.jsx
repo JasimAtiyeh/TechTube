@@ -14,10 +14,12 @@ class Greeting extends React.Component {
 
   render() {
     let header;
+    let currentUser;
     if (this.props.currentUser) {
       header = (
         <button className='current_user' onClick={this.props.logout}>Logout</button>
       )
+      currentUser = this.props.currentUser.username[0].toUpperCase
     } else {
       header = (
         <div className='no_current_user'>
@@ -26,10 +28,10 @@ class Greeting extends React.Component {
         </div>
       )
     }
-
+    
     return (
       <div className="dropdown">
-        <button onClick={this.handleClick} className="dropdownbtn">Button</button>
+        <button onClick={this.handleClick} className="dropdownbtn">{currentUser || 'G'}</button>
         <div id="session_state" className="dropdown-content">
           {header}
         </div>

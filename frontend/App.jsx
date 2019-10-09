@@ -8,7 +8,7 @@ import AuthRoute from './util/route_util';
 const App = () => (
   <div>
     <header className='navbar'>
-      <h1>Boo!Tube</h1>
+      <img src="../app/assets/images/boo_tube_logo.png" alt=""/>
       <GreetingContainer/>
     </header>
 
