@@ -3,7 +3,7 @@ class Api::VideosController < ApplicationController
   def index
     @videos = Video.includes(user: :videos).all
     respond_to do |format|
-        format.json
+      format.json
     end
     render :index
   end
@@ -17,7 +17,7 @@ class Api::VideosController < ApplicationController
       @num_dislikes = @video.likes.disliked.size
     end
     respond_to do |format|
-        format.json
+      format.json
     end
     render :show
   end
