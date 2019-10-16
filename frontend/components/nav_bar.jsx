@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class Greeting extends React.Component {
+class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
@@ -22,6 +22,10 @@ class Greeting extends React.Component {
     this.props.logout().then(() => this.setState({
       show: false
     }));
+  }
+
+  expandNav(e) {
+    document.getElementById('side-bar').classList.toggle('expand');
   }
 
   render() {
@@ -65,9 +69,32 @@ class Greeting extends React.Component {
     }
     
     return (
-      header
+      <header className='navbar'>
+        <div className='menu-root'>
+          <img
+            src={window.menu}
+            alt="side-menu"
+            onClick={this.expandNav}
+            className='menu-icon'/>
+
+          <Link to={'/'}>
+            <img className='logo-nav' src={window.logo} alt="logo" />
+          </Link>
+        </div>
+
+        <div className='nav-options'>
+          <Link to={'/videos/new'}>
+            {/* <img className='video-nav' src={window.video_add} alt="add_video" /> */}
+            <i className="fas fa-video"></i>
+          </Link>
+
+          {header}
+        </div>
+
+      </header>
+
     )
   }
 }
 
-export default Greeting;
+export default NavBar;

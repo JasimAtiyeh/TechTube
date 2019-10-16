@@ -8,6 +8,10 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" integrity="sha256-/sdxenK1NDowSNuphgwjv8wSosSNZB0t5koXqd7XqOI=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
 
   <body>
@@ -16,6 +20,30 @@
     </script>
     <script type="text/javascript">
       window.video_add = "<%= image_url('add-video.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.file_upload = "<%= image_url('file_upload.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.home = "<%= image_url('home.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.GitHub = "<%= image_url('GitHub.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.Linkedin = "<%= image_url('Linkedin.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.menu = "<%= image_url('menu.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.options = "<%= image_url('options.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.like = "<%= image_url('like.png') %>"
+    </script>
+    <script type="text/javascript">
+      window.dislike = "<%= image_url('dislike.png') %>"
     </script>
     <%= yield %>
   </body>

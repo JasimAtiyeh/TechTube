@@ -1,22 +1,34 @@
 import React from 'react';
-import GreetingContainer from './components/greeting_container';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
+import AuthRoute from './util/route_util';
+
+import NavBarContainer  from './components/nav_bar_container';
 import SignupFormContainer from './components/signup_form_container';
 import LoginFormContainer from './components/login_form_container';
-import AuthRoute from './util/route_util';
+import VideoUploadContainer from './components/videos/video_upload_container';
+import VideoEditContainer from './components/videos/video_edit_container';
+import VideoIndexContainer from './components/videos/videos_index_container';
+import SideBar from './components/side_bar';
+import VideoShowContainer from './components/videos/video_show_container';
+
 
 const App = () => (
   <div>
-    <header className='navbar'>
-      <Link to={'/'}>
-        <img className='logo-nav' src={window.logo} alt="logo" />
-      </Link>
-      {/* <img className='video-nav' src={window.video_add} alt="add_video"/> */}
-      <GreetingContainer/>
+    <header >
+        <NavBarContainer />
     </header>
-
-    <AuthRoute exact path='/login' component={LoginFormContainer}/>
-    <AuthRoute exact path='/signup' component={SignupFormContainer}/>
+    <div className='body'>
+      <div className='front-page'>
+        {/* <SideBar /> */}
+      
+        <Route exact path='/' component={VideoIndexContainer}/>
+        <AuthRoute exact path='/login' component={LoginFormContainer}/>
+        <AuthRoute exact path='/signup' component={SignupFormContainer}/>
+        <Route path='/videos/new' component={VideoUploadContainer}/>
+        <Route exact path='/videos/:video_id' component={VideoShowContainer}/>
+        <Route path='/videos/:video_id/edit' component={VideoEditContainer}/>
+      </div>
+    </div>
   </div>
 );
 

@@ -2,17 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background-color: #F5F5F5;
+.body {
+  background-color: #f9f9f9;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #E0E0E0;
-  background-color: white;
+  background-color: #ffffff;
   height: 60px;
-  padding: auto;
+  position: fixed;
+  overflow: hidden;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
 }
 
 .navbar h1 {
@@ -23,10 +27,19 @@ body {
 }
 
 .video-nav {
-  position: relative;
-  left: 250px;
-  height: 40px;
-  top: 9px;
+  right: 220px;
+  top: 13px;
+}
+
+.nav-options {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.nav-options svg {
+  font-size: 25px;
+  color: #808080;
 }
 
 .current-user {
@@ -35,7 +48,7 @@ body {
   font-weight: 600;
   height: 30px;
   top: 10px;
-  color: grey;
+  color: #065FD4;
   border: 0px;
 }
 
@@ -45,9 +58,7 @@ body {
 }
 
 .no-current-user {
-  position: relative;
-  top: 21px;
-  right: 10px;
+  
 }
 
 .no-current-user a {
@@ -144,15 +155,13 @@ body {
 }
 
 .dropdownbtn {
-  position: relative;
-  top: 13px;
-  right: 18px;
   height: 35px;
   width: 35px;
   border-radius: 50%;
   font-size: 18px;
   font-weight: 600;
   color: #065fd4;
+  margin-left: 30px;
 }
 
 .dropdown-content {
@@ -161,10 +170,10 @@ body {
 
 #session-state {
   display: flex;
-  position: absolute;
+  position: fixed;
   box-shadow: 0px 0px 6px 0px darkgrey;
-  right: 10px;
-  top: 69px;
+  right: 8px;
+  top: 60px;
   height: 50px;
   padding: 0 10px;
   background-color: white;
@@ -186,4 +195,8 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.vsc-controller {
+  display: none;
 }

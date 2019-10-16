@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  channel_name    :string
+#  videos          :integer          is an Array
+#
+
 class User < ApplicationRecord
   validates :username, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
@@ -5,6 +19,8 @@ class User < ApplicationRecord
 
   attr_reader :password
   after_initialize :ensure_session_token
+  has_many :videos
+  has_many :likes
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
