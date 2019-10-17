@@ -1,7 +1,10 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
 import LikeContainer from '../likes/video_likes_container';
-import {Link} from 'react-router-dom';
+import CreateCommentContainer from '../comments/create_comment_container';
+import EditCommentContainer from '../comments/edit_comment_container';
+import CommentIndexComponent from '../comments/comment_index_container';
+import {Link, Route} from 'react-router-dom';
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -14,6 +17,12 @@ class VideoShow extends React.Component {
   componentDidMount() {
     this.props.requestVideo(this.props.videoId);
     this.props.requestVideos();
+  }
+
+  componentDidUpdate(oldProps) {
+    if (this.props.videoId !== oldProps.videoId) {
+      this.props.requestVideo(this.props.videoId);
+    }
   }
 
   handleClick() {
@@ -34,7 +43,8 @@ class VideoShow extends React.Component {
     
     
     if (video){
-      let user = video.user.channel_name || video.user.username;
+      debugger;
+      let user = video.user.username;
       
       const videoDisplay = (
         <div className='video-display'>
@@ -44,10 +54,9 @@ class VideoShow extends React.Component {
         </div>
       )
 
-
       if (videos) {
         const videoIndexItems = videos.map((video, idx) => {
-          let user = video.user.channel_name || video.user.username;
+          let user = video.user.username;
           return (
             <li key={idx} className='video-side-bar'>
               <VideoIndexItem key={video.id} video={video} user={user} />
@@ -125,6 +134,15 @@ class VideoShow extends React.Component {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className='comments'>
+                <div>
+                  <CreateCommentContainer videoId={video.id}/>
+                  <Route path='/videos/:video_id/edit/:comment_id' component={EditCommentContainer} />
+                </div>
+                <ul>
+                  <CommentIndexComponent videoId={this.props.video.id} videoComments={this.props.videoComments} />
+                </ul>
               </div>
             </div>
             

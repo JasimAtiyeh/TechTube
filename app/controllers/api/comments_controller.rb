@@ -1,15 +1,18 @@
 class Api::CommentsController < ApplicationController
 
-  # def index
-  #   @comments = Comment.includes(user: :comments).all
-  #   respond_to do |format|
-  #     format.json
-  #   end
-  #   render :index
-  # end
+  def index
+    @video = Video.find(params[:video_id])
+    @comments = @video.comments.all
+    respond_to do |format|
+      format.json
+    end
+    render :index
+  end
 
   def show
-    @comment = Comment.includes(:likes).find(params[:id])
+    @video = Video.find(params[:video_id])
+    @comments = @video.comments.find(params[:id])
+    # @comment = Comment.includes(:likes).find(params[:video_id])
     if current_user
       @like = @comment.likes.find_by(user_id: current_user.id)
       @like = current_user.likes.find_by(likable_type: 'Comment', likable_id: @comment.id)
@@ -25,8 +28,9 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
+    @comment.video_id = params[:video_id]
 
-    if @comment.save
+    if @comment.save!
       respond_to do |format|
         format.json
       end
@@ -37,7 +41,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @comment = current_user.videos.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
 
     if @comment.update(comment_params)
       respond_to do |format|
@@ -57,7 +61,7 @@ class Api::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comments).permit(:body)
+    params.require(:comment).permit(:body)
   end
 
 end

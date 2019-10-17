@@ -3,6 +3,9 @@ import * as LikeApiUtil from '../util/like_api_util';
 export const RECEIVE_VIDEO_LIKE = 'RECEIVE_VIDEO_LIKE';
 export const REMOVE_VIDEO_LIKE = 'REMOVE_VIDEO_LIKE';
 
+export const RECEIVE_COMMENT_LIKE = 'RECEIVE_COMMENT_LIKE';
+export const REMOVE_COMMENT_LIKE = 'REMOVE_COMMENT_LIKE';
+
 const receiveVideoLike = response => ({
   type: RECEIVE_VIDEO_LIKE,
   response
@@ -13,14 +16,15 @@ const removeVideoLike = response => ({
   videoId: response.video_id
 });
 
-const receiveLike = like => ({
-  type: RECEIVE_LIKE,
-  like
+const receiveCommentLike = response => ({
+  type: RECEIVE_COMMENT_LIKE,
+  response
 });
 
-const removeLike = likeId => ({
-  type: REMOVE_LIKE,
-  likeId
+const removeCommentLike = response => ({
+  type: REMOVE_COMMENT_LIKE,
+  videoId: response.video_id,
+  commentId: response.comment_id
 });
 
 export const createVideoLike = (like, video_id) => dispatch => (
@@ -31,10 +35,10 @@ export const deleteVideoLike = videoId => dispatch => (
   LikeApiUtil.deleteVideoLike(videoId).then(like => dispatch(removeVideoLike(like)))
 );
 
-export const createLike = like => dispatch => (
-  LikeApiUtil.createCommentLike(like).then(like => dispatch(receiveLike(like)))
+export const createCommentLike = (like, videoId, commentId) => dispatch => (
+  LikeApiUtil.createCommentLike(like, videoId, commentId).then(like => dispatch(receiveCommentLike(like)))
 );
 
-export const deleteLike = commentId => dispatch => (
-  LikeApiUtil.deleteCommentLike(commentId).then(commentId => dispatch(removeLike(commentId)))
+export const deleteCommentLike = (videoId, commentId) => dispatch => (
+  LikeApiUtil.deleteCommentLike(videoId, commentId).then(like => dispatch(removeCommentLike(like)))
 );

@@ -1,0 +1,38 @@
+.comment-form {
+  display: flex;
+}
+.comment-form form {
+  width: 100%;
+  text-align: end;
+}
+
+.comment-form textarea {
+  border: 0px;
+  resize: none;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid gray;
+  margin: 10px 0px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0px;
+}
+
+.comment-form-submit {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: #065FD4;
+}
+
+.comment-index-item {
+  display: flex;
+  justify-content: space-between;
+  height: 85px;
+}
+
+.comment-dropdown {
+  position: relative;
+  top: 45px;
+  cursor: pointer;
+}

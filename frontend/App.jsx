@@ -12,6 +12,7 @@ import SideBar from './components/side_bar';
 import VideoShowContainer from './components/videos/video_show_container';
 
 
+
 const App = () => (
   <div>
     <header >
@@ -26,7 +27,6 @@ const App = () => (
         <AuthRoute exact path='/signup' component={SignupFormContainer}/>
         <Route path='/videos/new' component={VideoUploadContainer}/>
         <Route exact path='/videos/:video_id' component={VideoShowContainer}/>
-        <Route path='/videos/:video_id/edit' component={VideoEditContainer}/>
       </div>
     </div>
   </div>

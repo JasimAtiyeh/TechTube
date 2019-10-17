@@ -13,17 +13,17 @@ export const deleteVideoLike = video_id => (
   })
 );
 
-export const createCommentLike = like => (
+export const createCommentLike = (like, videoId, commentId) => (
   $.ajax({
     method: "POST",
-    url: `/api/comments/${like.likeableId}/likes`,
+    url: `/api/videos/${videoId}/comments/${commentId}/likes`,
     data: { like }
   })
 );
 
-export const deleteCommentLike = commentId => (
+export const deleteCommentLike = (videoId, commentId) => (
   $.ajax({
     method: "DELETE",
-    url: `/api/comments/${commentId}/likes`
+    url: `/api/videos/${videoId}/comments/${commentId}/likes`
   })
 );

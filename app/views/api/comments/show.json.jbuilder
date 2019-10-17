@@ -1,4 +1,4 @@
-json.extract! @comment, :id, :body, :user_id
+json.extract! @comment, :id, :body, :user_id, :video_id
 if @like
   json.like_status @like.like ? 'like' : 'dislike'
 end
