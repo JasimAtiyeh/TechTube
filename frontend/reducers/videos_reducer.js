@@ -38,10 +38,10 @@ const VideosReducer = (oldState = {}, action) => {
       delete newState[action.videoId].like_status;
       return newState;
     case RECEIVE_ALL_COMMENTS:
-      return merge({}, oldState, { [action.videoId]: {comments: Object.keys(action.comments)}});
+      return merge({}, oldState, { [action.videoId]: {comments: Object.keys(action.comments).reverse()}});
     case RECEIVE_COMMENT:
       let videoComments = oldState[action.comment.video_id].comments;
-      videoComments.push(action.comment.id.toString());
+      videoComments.unshift(action.comment.id.toString());
       debugger;
       return merge({}, oldState, { [action.comment.video_id]: { comments: videoComments}});
       // oldState[action.comment.video_id].comments.push([action.comment.id].toString())
