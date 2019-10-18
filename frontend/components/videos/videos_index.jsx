@@ -21,25 +21,37 @@ class VideosIndex extends React.Component {
         )
       });
 
+      const shuffle = a => {
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+      let recommended = [...videoIndexItems]
+      let newestUploads = [...videoIndexItems]
+      let trending = [...videoIndexItems]
+      let recentlyWatched = [...videoIndexItems]
+
       return (
         <div className='videos-main'>
           
           <div className='video-index-container'>
             <h3>Recommended</h3>
             <ul className='video-index'>
-              {videoIndexItems}
+              {shuffle(recommended)}
             </ul>
             <h3>Newest Uploads</h3>
             <ul className='video-index'>
-              {videoIndexItems}
+              {shuffle(newestUploads)}
             </ul>
             <h3>Trending</h3>
             <ul className='video-index'>
-              {videoIndexItems}
+              {shuffle(trending)}
             </ul>
             <h3>Recently Watched</h3>
             <ul className='video-index'>
-              {videoIndexItems}
+              {shuffle(recentlyWatched)}
             </ul>
           </div>
         </div>
