@@ -60,3 +60,4 @@ v8.video_link.attach(io: c8, filename: 'light_flicker.mp4')
 v8.thumb_nail.attach(io: t8, filename: 'light_flicker.jpeg')
 v9.video_link.attach(io: c9, filename: 'hong_kong.mp4')
 v9.thumb_nail.attach(io: t9, filename: 'hong_kong.jpeg')
+

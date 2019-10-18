@@ -26,6 +26,7 @@ const App = () => (
         <AuthRoute exact path='/login' component={LoginFormContainer}/>
         <AuthRoute exact path='/signup' component={SignupFormContainer}/>
         <Route path='/videos/new' component={VideoUploadContainer}/>
+        <Route path='/videos/:video_id/edit' component={VideoEditContainer}/>
         <Route exact path='/videos/:video_id' component={VideoShowContainer}/>
       </div>
     </div>

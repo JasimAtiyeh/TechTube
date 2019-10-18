@@ -55,6 +55,7 @@
 .current-user:hover {
   background-color: #065FD4;
   color: white;
+  cursor: pointer;
 }
 
 .no-current-user {
@@ -137,6 +138,10 @@
   border-radius: 4px;
 }
 
+.signup-login-button:hover {
+  cursor: pointer;
+}
+
 .guest-login-button {
   border: 1px;
   font-size: 16px;
@@ -145,7 +150,7 @@
 }
 
 .guest-login-button:hover {
-  cursor: default;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -162,6 +167,10 @@
   font-weight: 600;
   color: #065fd4;
   margin-left: 30px;
+}
+
+.dropdownbtn:hover {
+  cursor: pointer;
 }
 
 .dropdown-content {

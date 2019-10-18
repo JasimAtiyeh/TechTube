@@ -25,6 +25,10 @@
   background-color: #065FD4;
 }
 
+.comment-form-submit:hover {
+  cursor: pointer;
+}
+
 .comment-index-item {
   display: flex;
   justify-content: space-between;
@@ -34,5 +38,28 @@
 .comment-dropdown {
   position: relative;
   top: 45px;
+  cursor: pointer;
+}
+
+.option-menu-content-comment {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: absolute;
+  left: -75px;
+  border: 1px solid #d3d3d3;
+  width: 145px;
+}
+
+.option-menu-content-comment button {
+  text-decoration: none;
+  color: #6e6e6e;
+  font-size: 14px;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.option-menu-content-comment button:hover {
+  background-color: #d3d3d3;
   cursor: pointer;
 }

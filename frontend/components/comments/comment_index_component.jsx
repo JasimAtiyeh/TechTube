@@ -9,7 +9,6 @@ class CommentIndex extends React.Component {
 
   componentDidUpdate(oldProps) {
     if (this.props.videoId !== oldProps.videoId) {
-      debugger;
       this.props.fetchComments(this.props.videoId);
     }
     // if (this.props.comments !== oldProps.comments) {
@@ -21,9 +20,7 @@ class CommentIndex extends React.Component {
     let comments = this.props.videoComments;
     let commentIndex;
 
-    debugger;
     if (comments) {
-      debugger;
         commentIndex = comments.map((comment, idx) => {
         let commentOnVideo = this.props.comments[comment];
         return (
@@ -34,6 +31,7 @@ class CommentIndex extends React.Component {
               videoId={this.props.videoId}
               user={this.props.user}
               currentUserId={this.props.currentUserId}
+              updateComment={this.props.updateComment}
               deleteComment={this.props.deleteComment}/>
           </li>
         )

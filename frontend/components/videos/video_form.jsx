@@ -4,8 +4,8 @@ class VideoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: `${this.props.video.title}`,
-      description: `${this.props.video.description}`,
+      title: this.props.video.title,
+      description: this.props.video.description,
       videoFile: null,
       thumbNailFile: null,
       active: false

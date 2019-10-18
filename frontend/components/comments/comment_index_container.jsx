@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index_component';
 import { fetchComments, deleteComment } from '../../actions/comment_actions';
+import { updateComment } from '../../util/comment_api_util';
 
 const mapStateToProps = (state, ownProps) => {
   let videoComments = ownProps.videoComments;
@@ -19,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchComments: videoId => dispatch(fetchComments(videoId)),
+  updateComment: (comment, videoId) => dispatch(updateComment(comment, videoId)),
   deleteComment: (commentId, videoId) => dispatch(deleteComment(commentId, videoId))
 });
 

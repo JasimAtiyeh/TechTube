@@ -3,7 +3,6 @@ import VideoShow from './video_show';
 import { requestVideos, requestVideo, deleteVideo } from '../../actions/video_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   let videoId = ownProps.match.params.video_id;
   let video = state.entities.videos[videoId];
   let currentUserId = state.session.id;

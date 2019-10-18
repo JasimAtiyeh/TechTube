@@ -43,7 +43,6 @@ class VideoShow extends React.Component {
     
     
     if (video){
-      debugger;
       let user = video.user.username;
       
       const videoDisplay = (
@@ -71,6 +70,7 @@ class VideoShow extends React.Component {
         });
 
         let optionMenu;
+        let createComment;
         if (video.user.id === this.props.currentUserId) {
           optionMenu = (
             <div className="dropdown">
@@ -96,8 +96,8 @@ class VideoShow extends React.Component {
             </div>
           )
           
-          
         }
+        if (this.props.currentUserId) createComment = < CreateCommentContainer videoId = { video.id } />
 
         return (
           <div className='showpage'>
@@ -137,7 +137,7 @@ class VideoShow extends React.Component {
               </div>
               <div className='comments'>
                 <div>
-                  <CreateCommentContainer videoId={video.id}/>
+                  {createComment}
                   <Route path='/videos/:video_id/edit/:comment_id' component={EditCommentContainer} />
                 </div>
                 <ul>
