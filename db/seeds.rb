@@ -13,7 +13,7 @@ u3 = User.create(username: 'noalle', password: 'password')
 u4 = User.create(username: 'nijim', password: 'password')
 u5 = User.create(username: 'jack', password: 'password')
 
-v1 = Video.create(title: 'Candle Flicker', description: 'Scary candles flickering in the dark')
+v1 = Video.create(title: 'Candle Flicker', description: 'Scary candles flickering in the dark', user_id: 1)
 
 c1 = open('https://boo-tube-seeds.s3.us-east-2.amazonaws.com/CandleFlickeringH264.mov')
 # t1 = open('https://boo-tube-seeds.s3.us-east-2.amazonaws.com/thumbnails/222390-maxresdefault.jpg')
