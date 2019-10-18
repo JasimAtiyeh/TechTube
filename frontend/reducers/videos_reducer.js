@@ -42,7 +42,6 @@ const VideosReducer = (oldState = {}, action) => {
     case RECEIVE_COMMENT:
       let videoComments = oldState[action.comment.video_id].comments;
       videoComments.unshift(action.comment.id.toString());
-      debugger;
       return merge({}, oldState, { [action.comment.video_id]: { comments: videoComments}});
       // oldState[action.comment.video_id].comments.push([action.comment.id].toString())
     case REMOVE_COMMENT:

@@ -24,14 +24,13 @@ export const updateComment = (comment, video_id) => (
   $.ajax({
     method: 'patch',
     url: `/api/videos/${video_id}/comments/${comment.id}`,
-    data: {comment: {body: comment}}
+    data: {comment}
   })
 );
 
-export const deleteComment = (commentId, video_id) => {
-  debugger;
-  return $.ajax({
+export const deleteComment = (commentId, video_id) => (
+  $.ajax({
     method: 'delete',
     url: `/api/videos/${video_id}/comments/${commentId}`
   })
-};
+);

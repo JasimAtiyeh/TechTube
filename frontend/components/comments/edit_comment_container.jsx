@@ -3,7 +3,6 @@ import CommentFormComponent from './comment_form_component';
 import { updateComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   let videoId = ownProps.video_id;
   let comment = ownProps.comment;
   let userId = state.session.id;

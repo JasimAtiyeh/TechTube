@@ -27,15 +27,14 @@ class CommentIndexItem extends React.Component {
   updateComment() {
     let comment = {body: this.state.body, id: this.props.comment.id};
     let videoId = this.props.videoId;
-
     this.props.updateComment(comment, videoId);
+    this.setState({edit: false});
   }
 
   deleteComment() {
     let videoId = this.props.videoId;
     let commentId = this.props.comment.id;
 
-    debugger;
     this.props.deleteComment(commentId, videoId);
   }
 
@@ -57,7 +56,7 @@ class CommentIndexItem extends React.Component {
         
       editButton = (
         <button
-          className='comment-form-submit'
+          className='comment-update-submit'
           onClick={this.updateComment}>
             Update Comment
         </button>
@@ -106,7 +105,9 @@ class CommentIndexItem extends React.Component {
           <button className='user-icon'>
             {this.props.user.username[0].toUpperCase()}
           </button>
-          {editCommentField || comment.body}
+          <div className='comment-text'>
+            {editCommentField || comment.body}
+          </div>
         </div>
         {editButton || optionMenu}
       </div>

@@ -33,10 +33,9 @@ export const createComment = (comment, videoId) => dispatch => (
   CommentApiUtil.createComment(comment, videoId).then(comment => dispatch(receiveComment(comment)))
 );
 
-export const updateComment = (comment, videoId) => dispatch => {
-  debugger;
-  return CommentApiUtil.updateComment(comment, videoId).then(comment => dispatch(receiveComment(comment)))
-};
+export const updateComment = (comment, videoId) => dispatch => (
+  CommentApiUtil.updateComment(comment, videoId).then(comment => dispatch(receiveComment(comment)))
+);
 
 export const deleteComment = (commentId, videoId) => dispatch => (
   CommentApiUtil.deleteComment(commentId, videoId).then(comment => dispatch(removeComment(comment.id, comment.video_id)))

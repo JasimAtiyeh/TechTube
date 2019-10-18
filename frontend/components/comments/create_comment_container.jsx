@@ -5,7 +5,6 @@ import { createComment } from '../../actions/comment_actions';
 const mapStateToProps = (state, ownProps) => {
   let videoId = ownProps.videoId;
   let userId = state.session.id;
-  debugger;
   let user = state.entities.users[userId].username;
   return {
   formType: 'Create Comment',

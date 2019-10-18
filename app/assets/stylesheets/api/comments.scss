@@ -32,13 +32,13 @@
 .comment-index-item {
   display: flex;
   justify-content: space-between;
-  height: 85px;
+  flex-direction: column;
 }
 
 .comment-dropdown {
   position: relative;
-  top: 45px;
   cursor: pointer;
+  align-self: flex-end;
 }
 
 .option-menu-content-comment {
@@ -46,7 +46,6 @@
   flex-direction: column;
   background-color: white;
   position: absolute;
-  left: -75px;
   border: 1px solid #d3d3d3;
   width: 145px;
 }
@@ -57,9 +56,42 @@
   font-size: 14px;
   padding: 5px 8px;
   text-align: left;
+  background-color: whitesmoke;
 }
 
 .option-menu-content-comment button:hover {
   background-color: #d3d3d3;
   cursor: pointer;
+}
+
+.comment-user-info {
+  display: flex;
+  width: 100%;
+}
+
+.comment-user-info textarea {
+  border: 0px;
+  resize: none;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid gray;
+  margin: 10px 0px;
+  width: 100%;
+  font-size: 14px;
+  padding: 0px;
+}
+
+.comment-update-submit {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: #065FD4;
+  height: 40px;
+  width: 180px;
+  align-self: flex-end;
+}
+
+.comment-text {
+  align-self: center;
+  width: 100%;
 }

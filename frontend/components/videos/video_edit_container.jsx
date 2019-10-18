@@ -3,7 +3,6 @@ import VideoForm from './video_form';
 import { updateVideo } from '../../actions/video_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   let videoId = ownProps.match.params.video_id;
   let video = state.entities.videos[videoId];
   return ({

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index_component';
-import { fetchComments, deleteComment } from '../../actions/comment_actions';
-import { updateComment } from '../../util/comment_api_util';
+import { fetchComments, deleteComment, updateComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let videoComments = ownProps.videoComments;

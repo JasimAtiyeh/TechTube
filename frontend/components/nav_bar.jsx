@@ -71,11 +71,11 @@ class NavBar extends React.Component {
     return (
       <header className='navbar'>
         <div className='menu-root'>
-          <img
+          {/* <img
             src={window.menu}
             alt="side-menu"
             onClick={this.expandNav}
-            className='menu-icon'/>
+            className='menu-icon'/> */}
 
           <Link to={'/'}>
             <img className='logo-nav' src={window.logo} alt="logo" />
