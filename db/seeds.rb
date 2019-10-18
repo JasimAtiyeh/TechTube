@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-u1 = User.create(name: 'guest', password: 'password')
-u2 = User.create(name: 'jasim', password: 'password')
-u3 = User.create(name: 'noalle', password: 'password')
-u4 = User.create(name: 'nijim', password: 'password')
-u5 = User.create(name: 'jack', password: 'password')
+u1 = User.create(username: 'guest', password: 'password')
+u2 = User.create(username: 'jasim', password: 'password')
+u3 = User.create(username: 'noalle', password: 'password')
+u4 = User.create(username: 'nijim', password: 'password')
+u5 = User.create(username: 'jack', password: 'password')
 
 
 c1 = open('https://boo-tube-seeds.s3.us-east-2.amazonaws.com/CandleFlickeringH264.mov')
