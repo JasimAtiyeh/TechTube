@@ -11,11 +11,11 @@
  -->
 
 
-# boo!Tube
+# TechTube
 
-### boo!Tube is a clone of the popular community driven video streaming service, YouTube. boo!Tube is a hub of all of the ghost and scary videos around the internet. boo!Tube allows users to upload their favorite scary ghost videos and share them with the rest of the ghost loving community. Users can comment on each others videos and also like them.
+### TechTube is a clone of the popular community driven video streaming service, YouTube. TechTube is a hub of all of the tech related videos around the internet. TechTube allows users to upload their favorite tech videos and share them with the rest of the tech loving community. Users can comment on each others videos and also like them.
 
-### Link: https://boo-tube.herokuapp.com/#/
+### Link: https://tech-tube.herokuapp.com/#/
 
 ## Technologies:
   1. PostgreSQL
@@ -28,7 +28,7 @@
   8. AWS
 
 ## Features
-  * videos - Users can upload and edit videos on boo!Tube with ease. Click the add video button at the top of the page from any screen to add a video. You must be a registered user to upload content.Some of the trickier parts of this feature was building out the ability to restrict users access to editing the videos. Below is a specific example of restricting a users access to editing and deleting a video.
+  * videos - Users can upload and edit videos on TechTube with ease. Click the add video button at the top of the page from any screen to add a video. You must be a registered user to upload content.Some of the trickier parts of this feature was building out the ability to restrict users access to editing the videos. Below is a specific example of restricting a users access to editing and deleting a video.
 
   ```javaScript
   let optionMenu;
@@ -61,7 +61,7 @@
         if (this.props.currentUserId) createComment = < CreateCommentContainer videoId = { video.id } />
   ```
 
-  * Like videos - Users can like or dislike videos that are uploaded by the boo!Tube community. This gives other users the ability to see which videos they may like, and uploaders can see the communities reaction to their video. The liking of videos is a simple joining of the user and a video. This proved a complication with getting the information from my database to the React front end. Below is myself using the Rails controller to fetch all of the likes for a video.
+  * Like videos - Users can like or dislike videos that are uploaded by the TechTube community. This gives other users the ability to see which videos they may like, and uploaders can see the communities reaction to their video. The liking of videos is a simple joining of the user and a video. This proved a complication with getting the information from my database to the React front end. Below is myself using the Rails controller to fetch all of the likes for a video.
 
   ```Ruby
   def show
