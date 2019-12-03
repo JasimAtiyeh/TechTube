@@ -13,9 +13,11 @@
 
 # TechTube
 
-### TechTube is a clone of the popular community driven video streaming service, YouTube. TechTube is a hub of all of the tech related videos around the internet. TechTube allows users to upload their favorite tech videos and share them with the rest of the tech loving community. Users can comment on each others videos and also like them.
+### TechTube is modeled after the popular community driven video streaming service, YouTube. TechTube is a hub of all of the tech related videos around the internet. TechTube allows users to upload their favorite tech videos and share them with the rest of the tech loving community. Users can comment on each others videos and also like them.
 
 ### Link: https://tech-tube.herokuapp.com/#/
+
+![index_page](./app/assets/images/index_page.png)
 
 ## Technologies:
   1. PostgreSQL
@@ -27,8 +29,15 @@
   7. CSS
   8. AWS
 
-## Features
-  * videos - Users can upload and edit videos on TechTube with ease. Click the add video button at the top of the page from any screen to add a video. You must be a registered user to upload content.Some of the trickier parts of this feature was building out the ability to restrict users access to editing the videos. Below is a specific example of restricting a users access to editing and deleting a video.
+## Key Features & Implementation
+  ### Video
+  #### Feature
+  Using AWS S3, users can upload and edit videos and video thumbnails on TechTube. Using the add video button at the top of the page from any screen gives users access to the upload video menu.
+
+  ![user_auth_show_page](./app/assets/images/user_auth_show_page.png)
+
+  #### Implementation
+  Users ability to access the upload feature is restricted. They must be registered and logged in to upload content. This restriction also applies to the ability to edit a video posted to TechTube. There must be a current user logged into the system, and that current user's id must match the id of the user that owns the video being edited.
 
   ```javaScript
   let optionMenu;
@@ -58,10 +67,23 @@
           )
           
         }
-        if (this.props.currentUserId) createComment = < CreateCommentContainer videoId = { video.id } />
+        if (this.props.currentUserId) createComment = <CreateCommentContainer videoId={ video.id } />
   ```
 
-  * Like videos - Users can like or dislike videos that are uploaded by the TechTube community. This gives other users the ability to see which videos they may like, and uploaders can see the communities reaction to their video. The liking of videos is a simple joining of the user and a video. This proved a complication with getting the information from my database to the React front end. Below is myself using the Rails controller to fetch all of the likes for a video.
+  ### Video Likes
+  #### Feature
+  Videos can be liked or disliked by a user in the TechTube community. This feature is restricted to authorized users. This feature tracks the number of likes and dislikes that are associated with the video.
+
+  ![like_feature](./app/assets/images/like_feature.png)
+
+  #### Implementation
+  The liking of videos is a polymorphic association on a video. Each like creates a new entry on the Likes table of a boolean value. Using this boolean value to my advantage with a like represented as a true value and a dislike being represented with a false value. Using the Active Record association made it simple and easy to fetch all of the likes and dislikes for a video as well as the count of likes and dislikes.
+
+  ```Ruby
+  case RECEIVE_VIDEO_LIKE:
+      like_status = action.response.like ? 'like' : 'dislike';
+      return merge({}, oldState, { [action.response.likable_id]: {like_status: like_status}});
+  ```
 
   ```Ruby
   def show
@@ -80,11 +102,11 @@
   ```
 
 ## Future Concepts
-  * Search Feature
-    - Implement the ability for a user to search for videos by name or description. Also to search for channels.
-  * Liking Comments
-    - Give users the ability to like the comments that they see on a video.
-  * Replying to Comments
-    - Let users reply to the comments that they see on uploaded videos.
-  * Channel Subscriptions
-    - Create the ability for users to create channels to upload their content to, and give users the ability to subscribe to those channels.
+  #### Search Feature
+  Implement the ability to search for videos by name or description. Also to search for channels.
+  #### Liking Comments
+  Since the likes are a polymorphic association, it will be easy to tie that association to the comments feature as well. The ability to like a comment is already built out on the backend. The component that is used for liking a video can be inserted into each comment tile. This will give users the ability to like comments.
+  #### Replying to Comments
+  I could extend the capabilities of the comment component for users to leave a reply on an already existing comment. This would be relatively straight forward to implement since the comment component already exists.
+  #### Channel Subscriptions
+  Create the ability for users to create channels to upload their content to, and give users the ability to subscribe to those channels. 
