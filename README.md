@@ -13,7 +13,7 @@
 
 # TechTube
 
-### TechTube is modeled after the popular community driven video streaming service, YouTube. TechTube is a hub of all of the tech related videos around the internet. TechTube allows users to upload their favorite tech videos and share them with the rest of the tech loving community. Users can comment on each others videos and also like them.
+TechTube is modeled after the popular community driven video streaming service, YouTube. TechTube is a hub of all of the tech related videos around the internet. TechTube allows users to upload their favorite tech videos and share them with the rest of the tech loving community. Users can comment on each others videos and also like them.
 
 ### Link: https://tech-tube.herokuapp.com/#/
 
