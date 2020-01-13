@@ -15,20 +15,16 @@ import VideoShowContainer from './components/videos/video_show_container';
 
 const App = () => (
   <div>
-    <header >
-        <NavBarContainer />
-    </header>
+    <NavBarContainer />
     <div className='body'>
-      <div className='front-page'>
-        {/* <SideBar /> */}
-      
-        <Route exact path='/' component={VideoIndexContainer}/>
-        <AuthRoute exact path='/login' component={LoginFormContainer}/>
-        <AuthRoute exact path='/signup' component={SignupFormContainer}/>
-        <Route path='/videos/new' component={VideoUploadContainer}/>
-        <Route path='/videos/:video_id/edit' component={VideoEditContainer}/>
-        <Route exact path='/videos/:video_id' component={VideoShowContainer}/>
-      </div>
+      {/* <SideBar /> */}
+    
+      <Route exact path='/' component={VideoIndexContainer}/>
+      <AuthRoute exact path='/login' component={LoginFormContainer}/>
+      <AuthRoute exact path='/signup' component={SignupFormContainer}/>
+      <Route path='/videos/new' component={VideoUploadContainer}/>
+      <Route path='/videos/:video_id/edit' component={VideoEditContainer}/>
+      <Route exact path='/videos/:video_id' component={VideoShowContainer}/>
     </div>
   </div>
 );

@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.body {
+#root {
   background-color: #f9f9f9;
+}
+
+.body {
+  height: 100vh;
+  margin-top: 60px;
 }
 
 .navbar {
@@ -11,12 +16,12 @@
   justify-content: space-between;
   border-bottom: 1px solid #E0E0E0;
   background-color: #ffffff;
-  height: 60px;
-  position: fixed;
-  overflow: hidden;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
+  // height: 60px;
+  // position: fixed;
+  // overflow: hidden;
+  // top: 0px;
+  // width: 100%;
+  // z-index: 1;
 }
 
 .navbar h1 {
@@ -35,6 +40,8 @@
   display: flex;
   align-items: center;
   padding: 0 15px;
+  width: 20%;
+  justify-content: space-around;
 }
 
 .nav-options svg {
@@ -75,7 +82,7 @@
 .session-form {
   display: flex;
   width: 450px;
-  margin: 100px auto;
+  margin: 0 auto;
   flex-direction: column;
   border: 1px solid rgb(220, 220, 220);
   border-radius: 10px;
@@ -189,7 +196,8 @@
 }
 
 .logo-nav {
-  width: 75px;
+  width: 60px;
+  padding-left: 20px;
 }
 
 .logo-session-form {
