@@ -72,8 +72,8 @@ t17 = open('https://boo-tube-seeds.s3.us-east-2.amazonaws.com/tech_stock_images/
 c18 = open('https://boo-tube-seeds.s3.us-east-2.amazonaws.com/tech_stock_videos/white_keyboard.mov')
 t18 = open('https://boo-tube-seeds.s3.us-east-2.amazonaws.com/tech_stock_images/stock+images/close-up-video-of-hands-typing-on-computer-keyboard.jpg')
 
-v1.video_link.attach(io: c1, filename: 'candle_flicker.mp4')
-v1.thumb_nail.attach(io: t1, filename: 'candle_flicker.jpeg')
+v1.video_link.attach(io: c1, filename: '1080_HD_computer_keyboard_typing_Ryan.mov')
+v1.thumb_nail.attach(io: t1, filename: 'keys-iloveyou-ok-yes-no.jpeg')
 v2.video_link.attach(io: c2, filename: 'candle_stock.mp4')
 v2.thumb_nail.attach(io: t2, filename: 'candle_stock.jpeg')
 v3.video_link.attach(io: c3, filename: 'creepy_doll.mp4')
