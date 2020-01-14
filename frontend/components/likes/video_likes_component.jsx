@@ -6,27 +6,69 @@ class VideoLikeComponent extends React.Component {
     super(props);
     this.handleDislike = this.handleDislike.bind(this);
     this.handleLike = this.handleLike.bind(this);
+    this.state = {
+      numLikes: this.props.numLikes,
+      numDislikes: this.props.numDislikes
+    };
   }
+
+  // componentWillUpdate(a, b, c) {
+  //   console.log(a, b, c);
+  //   this.setState = {
+  //     numLikes: this.props.numLikes,
+  //     numDislikes: this.props.numDislikes
+  //   };
+  // }
+
+  // componentDidUpdate(oldProps) {
+  //   if (this.props.videoId !== oldProps.videoId) {
+  //     this.props.requestVideo(this.props.videoId);
+  //   }
+  // }
 
   handleLike() {
     if (this.props.likeStatus === 'like') {
-      this.props.deleteVideoLike(this.props.videoId);
+      this.props.deleteVideoLike(this.props.videoId)
+      .then(res => this.setState({
+        numLikes: res.response.num_likes,
+        numDislikes: res.response.num_dislikes
+      }));
     } else if (this.props.likeStatus === 'dislike') {
-      this.props.deleteVideoLike(this.props.videoId).then(() => 
-        this.props.createVideoLike({ like: true }, this.props.videoId));
+      this.props.deleteVideoLike(this.props.videoId)
+      .then(() => this.props.createVideoLike({ like: true }, this.props.videoId))
+      .then(res => this.setState({
+        numLikes: res.response.num_likes,
+        numDislikes: res.response.num_dislikes
+      }));
     } else {
-      this.props.createVideoLike({ like: true }, this.props.videoId);
+      this.props.createVideoLike({ like: true }, this.props.videoId)
+        .then(res => this.setState({
+          numLikes: res.response.num_likes,
+          numDislikes: res.response.num_dislikes
+        }));
     }
   }
 
   handleDislike() {
     if (this.props.likeStatus === 'dislike') {
-      this.props.deleteVideoLike(this.props.videoId);
+      this.props.deleteVideoLike(this.props.videoId)
+        .then(res => this.setState({
+          numLikes: res.response.num_likes,
+          numDislikes: res.response.num_dislikes
+        }));
     } else if (this.props.likeStatus === 'like') {
-      this.props.deleteVideoLike(this.props.videoId).then(() => 
-        this.props.createVideoLike({ like: false}, this.props.videoId));
+      this.props.deleteVideoLike(this.props.videoId)
+      .then(() => this.props.createVideoLike({ like: false}, this.props.videoId))
+      .then(res => this.setState({
+        numLikes: res.response.num_likes,
+        numDislikes: res.response.num_dislikes
+      }));
     } else {
-      this.props.createVideoLike({ like: false }, this.props.videoId);
+      this.props.createVideoLike({ like: false }, this.props.videoId)
+        .then(res => this.setState({
+          numLikes: res.response.num_likes,
+          numDislikes: res.response.num_dislikes
+        }));
     }
   }
 
@@ -38,9 +80,9 @@ class VideoLikeComponent extends React.Component {
     return (
       <div className='thumbs'>
         <i id='like' className={`material-icons ${like}`} alt="like" onClick={this.handleLike}>thumb_up</i>
-        {this.props.numLikes}
+        {this.state.numLikes}
         <i id='dislike' className={`material-icons ${dislike}`} alt="dislike" onClick={this.handleDislike}>thumb_down</i>
-        {this.props.numDislikes}
+        {this.state.numDislikes}
       </div>
     )
   }

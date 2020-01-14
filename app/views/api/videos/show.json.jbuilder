@@ -3,6 +3,7 @@
 # json.thumb_nail_url url_for(@video.thumb_nail)
 
 json.extract! @video, :id, :title, :description, :created_at, :user
+
 if @video.video_link.attached?
   json.video_link url_for(@video.video_link)
 end

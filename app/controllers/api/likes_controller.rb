@@ -24,11 +24,17 @@ class Api::LikesController < ApplicationController
   def destroy
     if params[:video_id]
       @like = current_user.likes.find_by(likable_id: params[:video_id], likable_type: 'Video')
+      @video = Video.find(params[:video_id])
     elsif params[:comment_id]
       @like = current_user.likes.find_by(likable_id: params[:comment_id], likable_type: 'Comment')
     end
     if @like.destroy
-      render json: {message: 'deleted successful', video_id: params[:video_id]}
+      render json: {
+        message: 'deleted successful',
+        video_id: params[:video_id],
+        num_likes: @video.likes.liked.size,
+        num_dislikes: @video.likes.disliked.size
+      }
     else
       render json: {message: 'deleted unsuccessful'}
     end

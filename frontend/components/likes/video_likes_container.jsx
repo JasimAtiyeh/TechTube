@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   let numLikes = state.entities.videos[videoId].num_likes;
   let numDislikes = state.entities.videos[videoId].num_dislikes;
   let likeStatus = state.entities.videos[videoId].like_status;
+  
   return {
     videoId,
     likeStatus,

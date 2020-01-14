@@ -13,7 +13,8 @@ const receiveVideoLike = response => ({
 
 const removeVideoLike = response => ({
   type: REMOVE_VIDEO_LIKE,
-  videoId: response.video_id
+  videoId: response.video_id,
+  response
 });
 
 const receiveCommentLike = response => ({
