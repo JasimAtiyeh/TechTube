@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   let userId = state.session.id;
   let user = state.entities.users[userId].username;
   return {
-  formType: 'Create Comment',
+  formType: 'COMMENT',
   comment: { body: '' },
   videoId,
   user

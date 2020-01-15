@@ -179,7 +179,7 @@ textarea {
 .video-index-item img {
   // background-image: url(http://i.ytimg.com);
   height: 150px;
-  width: 200px;
+  min-width: 200px;
   background-color: white;
 }
 
@@ -187,11 +187,13 @@ textarea {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  width: 220px;
 }
 
 .video-info {
   margin-right: 100px;
   margin-left: 5px;
+  // max-height: 100px;
 }
 
 .video-title {
@@ -199,13 +201,16 @@ textarea {
   font-weight: 700;
   color: black;
   overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 8px;
+  max-height: 36px;
 }
 
 .video-uploader {
   font-size: 13px;
   font-weight: 400;
   color: gray;
-  padding-top: 8px;
+  padding: 8px 0px;
   min-width: max-content;
 }
 
@@ -231,6 +236,7 @@ textarea {
 
 .showpage {
   display: flex;
+  background-color: #f9f9f9;
 }
 
 .video-side-bar {
@@ -241,7 +247,8 @@ textarea {
 
 .video-side-bar img {
   height: 100px;
-  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
   background-color: white;
   display: block;
   object-fit: cover;
@@ -334,7 +341,8 @@ textarea {
 
 .dropdown i {
   font-size: 40px;
-  color: #808080
+  color: #808080;
+  padding-bottom: 5px;
 }
 
 .option-menu-content {
@@ -374,8 +382,9 @@ textarea {
 
 .thumbs {
   align-self: flex-end;
-  margin-left: 170px;
+  margin-left: 300px;
   padding: 5px;
+  padding-bottom: 15px;
   color: #808080;
 }
 
